@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Roboto, Plus_Jakarta_Sans } from "next/font/google";
+import "../styles/globals.css";
+import Providers from "@/components/Providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({ weight: ['400', '900'], subsets: ['cyrillic'] });
+const plus = Plus_Jakarta_Sans({subsets: ["latin"]})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={plus.className}>
+        <Providers>
+        {children}
+        </Providers>
+      </body>
     </html>
   );
 }
