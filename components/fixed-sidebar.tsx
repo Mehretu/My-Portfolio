@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { ModeToggle } from './mode-toggle'
 import {
@@ -10,11 +11,11 @@ import {
 import Link from 'next/link'
 import { Blocks, Dumbbell, Github, Home, Instagram, LayoutPanelTop, Linkedin, NotebookPen, NotebookText, Send, SquarePen, Twitter, UserPen } from 'lucide-react'
 import Image from 'next/image'
-import WordRotate from "@/components/magicui/word-rotate";
-import { Item } from '@radix-ui/react-dropdown-menu'
 import CustomTextTransition from './CustomTextTransition'
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 export default function FixedSidebar() {
+
     const Text =[
       "Web Developer",
       "Back-end Engineer"
@@ -101,7 +102,8 @@ export default function FixedSidebar() {
                             <Link 
                             key={i} 
                             href={item.href} 
-                            className='flex flex-col gap-1.5 dark:bg-slate-600/5 border border-slate-100/20 dark:border-slate-800/50 bg-slate-50/90 group items-center justify-center rounded-[20px] w-12 h-12 p-2 hover:text-lime-500 duration-300'>
+                            className='flex flex-col gap-1.5 dark:bg-slate-600/5 border border-slate-100/20 dark:border-slate-800/50
+                             bg-slate-50/90 group items-center justify-center rounded-[20px] w-12 h-12 p-2 hover:text-lime-500 duration-300'>
                             <Icon className='w-5 h-5 flex-shrink-0'/>
                              <span 
                              className='sr-only'>{item.title}</span>
@@ -120,7 +122,17 @@ export default function FixedSidebar() {
             </div>
         </div>
         <div className='bg-slate-50 dark:bg-slate-900 rounded-tl-2xl text-slate-50 p-8 rounded-b-2xl'>
-        <Image src="/photo.jpg" alt='Profile image' width={500} height={500} className='w-[300px] rounded-tl-2xl rounded-b-2xl'/>
+        
+        <div className="relative w-[300px] rounded-xl overflow-hidden">
+        <Image 
+            src="/photo.jpg" 
+            alt='Profile image' 
+            width={500} 
+            height={500} 
+            className='z-10 relative w-full rounded-tl-2xl rounded-b-2xl p-0.5'
+            />
+        <BorderBeam/>
+        </div>
         <div className="py-2 mt-8 space-y-3 text-center">
             <p className='flex items-center justify-center text-lime-500 uppercase'>
             {<CustomTextTransition words={Text}/>}
