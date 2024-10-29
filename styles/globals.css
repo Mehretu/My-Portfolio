@@ -67,3 +67,25 @@
     @apply bg-background text-foreground;
   }
 }
+.highlight-container, .highlight {
+  position: relative;
+}
+
+.highlight-container {
+  display: inline-block;
+}
+.highlight-container:before {
+  content: " ";
+  display: block;
+  height: 105%;
+  width: 103%;
+  margin-left: 3px;
+  margin-right: -3px;
+  position: absolute;
+  background: #84cc16;
+  transform: rotate(-2deg);
+  top: 3px;
+  left: -10px;
+  border-radius: 30px;
+  padding: 16px 14px;
+}
